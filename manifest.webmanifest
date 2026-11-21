@@ -1,0 +1,30 @@
+{
+  "name": "SF プロジェクトアシスタント",
+  "short_name": "SF アシスタント",
+  "description": "SuccessFactors 導入プロジェクトのアシスタント：ビジネスルール設計とデータモデル管理（プロトタイプ）",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "background_color": "#232426",
+  "theme_color": "#232426",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

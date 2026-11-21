@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEMO DATA: fictional tenant "Demo Corp". Not from any real customer. -->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.successfactors.com/edm/sap">
+  <edmx:DataServices m:DataServiceVersion="2.0">
+    <Schema Namespace="SFOData" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="EmpJob" sap:label="職務情報">
+        <Key><PropertyRef Name="seqNumber"/><PropertyRef Name="startDate"/><PropertyRef Name="userId"/></Key>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="発令日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="終了日" sap:display-format="Date"/>
+        <Property Name="seqNumber" Type="Edm.Int64" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="連番"/>
+        <Property Name="event" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="イベント" MaxLength="128" sap:picklist="event"/>
+        <Property Name="eventReason" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="イベント事由" MaxLength="128"/>
+        <Property Name="company" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="会社" MaxLength="128"/>
+        <Property Name="businessUnit" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="事業本部" MaxLength="128"/>
+        <Property Name="division" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="事業部" MaxLength="128"/>
+        <Property Name="department" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="部署" MaxLength="128"/>
+        <Property Name="location" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="勤務地" MaxLength="128"/>
+        <Property Name="costCenter" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="コストセンター" MaxLength="128"/>
+        <Property Name="jobCode" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="職務コード" MaxLength="128"/>
+        <Property Name="jobTitle" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="職務名" MaxLength="255"/>
+        <Property Name="payGrade" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="等級" MaxLength="128"/>
+        <Property Name="position" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ポジション" MaxLength="128"/>
+        <Property Name="managerId" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="上長" MaxLength="128"/>
+        <Property Name="employeeClass" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="社員区分" MaxLength="128" sap:picklist="employeeclass"/>
+        <Property Name="employmentType" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="雇用形態" MaxLength="128" sap:picklist="employmentType"/>
+        <Property Name="emplStatus" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="在籍ステータス" MaxLength="128" sap:picklist="employee-status"/>
+        <Property Name="standardHours" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="所定労働時間（週）" Precision="18" Scale="2"/>
+        <Property Name="workingDaysPerWeek" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="週の勤務日数" Precision="18" Scale="1"/>
+        <Property Name="fte" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="FTE" Precision="18" Scale="2"/>
+        <Property Name="isFulltimeEmployee" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="フルタイム"/>
+        <Property Name="probationPeriodEndDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="試用期間終了日" sap:display-format="Date"/>
+        <Property Name="contractType" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="契約種別" MaxLength="128" sap:picklist="contractType"/>
+        <Property Name="contractEndDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="契約終了日" sap:display-format="Date"/>
+        <Property Name="customString1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="人事区分" MaxLength="128" sap:picklist="JP_HRCategory"/>
+        <Property Name="customString2" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="評価ランク" MaxLength="128" sap:picklist="JP_AppraisalRank"/>
+        <Property Name="customString3" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="役職" MaxLength="128" sap:picklist="JP_Position"/>
+        <Property Name="customString4" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="職群" MaxLength="128"/>
+        <Property Name="customString5" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="職級" MaxLength="128" sap:picklist="JP_JobLevel"/>
+        <Property Name="customString6" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="勤務形態" MaxLength="128" sap:picklist="JP_WorkStyle"/>
+        <Property Name="customDate1" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="最終等級変更日" sap:display-format="Date"/>
+        <Property Name="customDate2" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="役職任命日" sap:display-format="Date"/>
+        <Property Name="customDate3" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="出向開始日" sap:display-format="Date"/>
+        <Property Name="customDate4" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="出向終了予定日" sap:display-format="Date"/>
+        <Property Name="customDate5" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="契約更新日" sap:display-format="Date"/>
+        <Property Name="customLong1" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="等級在籍年数"/>
+        <Property Name="customDouble1" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="評価係数" Precision="18" Scale="2"/>
+        <Property Name="customBoolean1" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="裁量労働対象"/>
+        <Property Name="customBoolean2" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="テレワーク対象"/>
+        <Property Name="createdBy" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="作成者" MaxLength="128"/>
+        <Property Name="lastModifiedDateTime" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="最終更新日時"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpJob_userIdNav" FromRole="EmpJob" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="eventReasonNav" Relationship="SFOData.EmpJob_eventReasonNav" FromRole="EmpJob" ToRole="eventReasonNav_FOEventReason" sap:label="イベント事由"/>
+        <NavigationProperty Name="companyNav" Relationship="SFOData.EmpJob_companyNav" FromRole="EmpJob" ToRole="companyNav_FOCompany" sap:label="会社"/>
+        <NavigationProperty Name="businessUnitNav" Relationship="SFOData.EmpJob_businessUnitNav" FromRole="EmpJob" ToRole="businessUnitNav_FOBusinessUnit" sap:label="事業本部"/>
+        <NavigationProperty Name="divisionNav" Relationship="SFOData.EmpJob_divisionNav" FromRole="EmpJob" ToRole="divisionNav_FODivision" sap:label="事業部"/>
+        <NavigationProperty Name="departmentNav" Relationship="SFOData.EmpJob_departmentNav" FromRole="EmpJob" ToRole="departmentNav_FODepartment" sap:label="部署"/>
+        <NavigationProperty Name="locationNav" Relationship="SFOData.EmpJob_locationNav" FromRole="EmpJob" ToRole="locationNav_FOLocation" sap:label="勤務地"/>
+        <NavigationProperty Name="costCenterNav" Relationship="SFOData.EmpJob_costCenterNav" FromRole="EmpJob" ToRole="costCenterNav_FOCostCenter" sap:label="コストセンター"/>
+        <NavigationProperty Name="jobCodeNav" Relationship="SFOData.EmpJob_jobCodeNav" FromRole="EmpJob" ToRole="jobCodeNav_FOJobCode" sap:label="職務コード"/>
+        <NavigationProperty Name="payGradeNav" Relationship="SFOData.EmpJob_payGradeNav" FromRole="EmpJob" ToRole="payGradeNav_FOPayGrade" sap:label="等級"/>
+        <NavigationProperty Name="positionNav" Relationship="SFOData.EmpJob_positionNav" FromRole="EmpJob" ToRole="positionNav_Position" sap:label="ポジション"/>
+        <NavigationProperty Name="managerIdNav" Relationship="SFOData.EmpJob_managerIdNav" FromRole="EmpJob" ToRole="managerIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="customString4Nav" Relationship="SFOData.EmpJob_customString4Nav" FromRole="EmpJob" ToRole="customString4Nav_cust_JobFamily" sap:label="職群"/>
+        <NavigationProperty Name="employmentNav" Relationship="SFOData.EmpJob_employmentNav" FromRole="EmpJob" ToRole="employmentNav_EmpEmployment" sap:label="雇用情報"/>
+      </EntityType>
+      <EntityType Name="EmpEmployment" sap:label="雇用情報">
+        <Key><PropertyRef Name="personIdExternal"/><PropertyRef Name="userId"/></Key>
+        <Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人ID" MaxLength="128"/>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="入社日" sap:display-format="Date"/>
+        <Property Name="originalStartDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="当初入社日" sap:display-format="Date"/>
+        <Property Name="seniorityDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="勤続起算日" sap:display-format="Date"/>
+        <Property Name="benefitsEligibilityStartDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="福利厚生適用開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="退職日" sap:display-format="Date"/>
+        <Property Name="lastDateWorked" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="最終勤務日" sap:display-format="Date"/>
+        <Property Name="isContingentWorker" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="外部人材"/>
+        <Property Name="customString1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="入社経路" MaxLength="128" sap:picklist="JP_HireRoute"/>
+        <Property Name="customString2" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="社員番号" MaxLength="10"/>
+        <Property Name="customDate1" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="グループ入社日" sap:display-format="Date"/>
+        <Property Name="customDate2" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="定年到達日" sap:display-format="Date"/>
+        <Property Name="customDate3" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="入社予定日" sap:display-format="Date"/>
+        <Property Name="customDate4" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格取得日" sap:display-format="Date"/>
+        <Property Name="customLong1" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="定年年齢"/>
+        <Property Name="customLong2" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="入社年度"/>
+        <Property Name="customLong3" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="勤続年数"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpEmployment_userIdNav" FromRole="EmpEmployment" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="personNav" Relationship="SFOData.EmpEmployment_personNav" FromRole="EmpEmployment" ToRole="personNav_PerPerson" sap:label="個人情報（基本）"/>
+        <NavigationProperty Name="jobInfoNav" Relationship="SFOData.EmpEmployment_jobInfoNav" FromRole="EmpEmployment" ToRole="jobInfoNav_EmpJob" sap:label="職務情報"/>
+        <NavigationProperty Name="compInfoNav" Relationship="SFOData.EmpEmployment_compInfoNav" FromRole="EmpEmployment" ToRole="compInfoNav_EmpCompensation" sap:label="報酬情報"/>
+        <NavigationProperty Name="employmentTerminationNav" Relationship="SFOData.EmpEmployment_employmentTerminationNav" FromRole="EmpEmployment" ToRole="employmentTerminationNav_EmpEmploymentTermination" sap:label="退職情報"/>
+      </EntityType>
+      <EntityType Name="EmpEmploymentTermination" sap:label="退職情報">
+        <Key><PropertyRef Name="personIdExternal"/><PropertyRef Name="userId"/></Key>
+        <Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人ID" MaxLength="128"/>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="退職日" sap:display-format="Date"/>
+        <Property Name="eventReason" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="退職事由" MaxLength="128"/>
+        <Property Name="lastDateWorked" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="最終勤務日" sap:display-format="Date"/>
+        <Property Name="okToRehire" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="再雇用可"/>
+        <Property Name="regretTermination" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="惜しまれる退職"/>
+        <Property Name="customString1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="退職理由（詳細）" MaxLength="128" sap:picklist="JP_TermReasonDetail"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpEmploymentTermination_userIdNav" FromRole="EmpEmploymentTermination" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="eventReasonNav" Relationship="SFOData.EmpEmploymentTermination_eventReasonNav" FromRole="EmpEmploymentTermination" ToRole="eventReasonNav_FOEventReason" sap:label="イベント事由"/>
+      </EntityType>
+      <EntityType Name="PerPerson" sap:label="個人情報（基本）">
+        <Key><PropertyRef Name="personIdExternal"/></Key>
+        <Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人ID" MaxLength="128"/>
+        <Property Name="dateOfBirth" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="生年月日" sap:display-format="Date"/>
+        <Property Name="countryOfBirth" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="出生国" MaxLength="128"/>
+        <Property Name="placeOfBirth" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="出生地" MaxLength="100"/>
+        <Property Name="perPersonUuid" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人UUID" MaxLength="128"/>
+        <NavigationProperty Name="countryOfBirthNav" Relationship="SFOData.PerPerson_countryOfBirthNav" FromRole="PerPerson" ToRole="countryOfBirthNav_Country" sap:label="国"/>
+        <NavigationProperty Name="personalInfoNav" Relationship="SFOData.PerPerson_personalInfoNav" FromRole="PerPerson" ToRole="personalInfoNav_PerPersonal" sap:label="個人情報"/>
+        <NavigationProperty Name="emailNav" Relationship="SFOData.PerPerson_emailNav" FromRole="PerPerson" ToRole="emailNav_PerEmail" sap:label="メールアドレス"/>
+        <NavigationProperty Name="nationalIdNav" Relationship="SFOData.PerPerson_nationalIdNav" FromRole="PerPerson" ToRole="nationalIdNav_PerNationalId" sap:label="国民ID"/>
+        <NavigationProperty Name="employmentNav" Relationship="SFOData.PerPerson_employmentNav" FromRole="PerPerson" ToRole="employmentNav_EmpEmployment" sap:label="雇用情報"/>
+      </EntityType>
+      <EntityType Name="PerPersonal" sap:label="個人情報">
+        <Key><PropertyRef Name="personIdExternal"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人ID" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="lastName" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="姓" MaxLength="128"/>
+        <Property Name="firstName" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名" MaxLength="128"/>
+        <Property Name="lastNameAlt1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="姓（カナ）" MaxLength="128"/>
+        <Property Name="firstNameAlt1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名（カナ）" MaxLength="128"/>
+        <Property Name="gender" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="性別" MaxLength="128" sap:picklist="GENDER"/>
+        <Property Name="maritalStatus" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="婚姻状況" MaxLength="128" sap:picklist="ecMaritalStatus"/>
+        <Property Name="since" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="婚姻状況の変更日" sap:display-format="Date"/>
+        <Property Name="nationality" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="国籍" MaxLength="128"/>
+        <NavigationProperty Name="nationalityNav" Relationship="SFOData.PerPersonal_nationalityNav" FromRole="PerPersonal" ToRole="nationalityNav_Country" sap:label="国"/>
+      </EntityType>
+      <EntityType Name="PerEmail" sap:label="メールアドレス">
+        <Key><PropertyRef Name="emailType"/><PropertyRef Name="personIdExternal"/></Key>
+        <Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人ID" MaxLength="128"/>
+        <Property Name="emailType" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="メールの種類" MaxLength="128" sap:picklist="ecEmailType"/>
+        <Property Name="emailAddress" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="メールアドレス" MaxLength="100"/>
+        <Property Name="isPrimary" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="主たる連絡先"/>
+      </EntityType>
+      <EntityType Name="PerNationalId" sap:label="国民ID">
+        <Key><PropertyRef Name="cardType"/><PropertyRef Name="country"/><PropertyRef Name="personIdExternal"/></Key>
+        <Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="個人ID" MaxLength="128"/>
+        <Property Name="country" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="国" MaxLength="128"/>
+        <Property Name="cardType" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ID の種類" MaxLength="128" sap:picklist="ecNationalIdCardType"/>
+        <Property Name="nationalId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ID 番号" MaxLength="40"/>
+        <Property Name="isPrimary" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="主たる ID"/>
+        <NavigationProperty Name="countryNav" Relationship="SFOData.PerNationalId_countryNav" FromRole="PerNationalId" ToRole="countryNav_Country" sap:label="国"/>
+      </EntityType>
+      <EntityType Name="EmpCompensation" sap:label="報酬情報">
+        <Key><PropertyRef Name="seqNumber"/><PropertyRef Name="startDate"/><PropertyRef Name="userId"/></Key>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="発令日" sap:display-format="Date"/>
+        <Property Name="seqNumber" Type="Edm.Int64" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="連番"/>
+        <Property Name="event" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="イベント" MaxLength="128" sap:picklist="event"/>
+        <Property Name="eventReason" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="イベント事由" MaxLength="128"/>
+        <Property Name="payGroup" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="給与グループ" MaxLength="128"/>
+        <Property Name="isEligibleForBenefit" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="福利厚生対象"/>
+        <Property Name="isEligibleForCar" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="社用車対象"/>
+        <Property Name="customString1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="給与形態" MaxLength="128" sap:picklist="JP_SalaryType"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpCompensation_userIdNav" FromRole="EmpCompensation" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="eventReasonNav" Relationship="SFOData.EmpCompensation_eventReasonNav" FromRole="EmpCompensation" ToRole="eventReasonNav_FOEventReason" sap:label="イベント事由"/>
+        <NavigationProperty Name="payGroupNav" Relationship="SFOData.EmpCompensation_payGroupNav" FromRole="EmpCompensation" ToRole="payGroupNav_FOPayGroup" sap:label="給与グループ"/>
+        <NavigationProperty Name="empPayCompRecurringNav" Relationship="SFOData.EmpCompensation_empPayCompRecurringNav" FromRole="EmpCompensation" ToRole="empPayCompRecurringNav_EmpPayCompRecurring" sap:label="定期報酬"/>
+        <NavigationProperty Name="employmentNav" Relationship="SFOData.EmpCompensation_employmentNav" FromRole="EmpCompensation" ToRole="employmentNav_EmpEmployment" sap:label="雇用情報"/>
+      </EntityType>
+      <EntityType Name="EmpPayCompRecurring" sap:label="定期報酬">
+        <Key><PropertyRef Name="payComponent"/><PropertyRef Name="seqNumber"/><PropertyRef Name="startDate"/><PropertyRef Name="userId"/></Key>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="発令日" sap:display-format="Date"/>
+        <Property Name="seqNumber" Type="Edm.Int64" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="連番"/>
+        <Property Name="payComponent" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="報酬項目" MaxLength="128"/>
+        <Property Name="paycompvalue" Type="Edm.Decimal" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="金額" Precision="18" Scale="2"/>
+        <Property Name="currencyCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="通貨" MaxLength="128"/>
+        <Property Name="frequency" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="頻度" MaxLength="128"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpPayCompRecurring_userIdNav" FromRole="EmpPayCompRecurring" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="payComponentNav" Relationship="SFOData.EmpPayCompRecurring_payComponentNav" FromRole="EmpPayCompRecurring" ToRole="payComponentNav_FOPayComponent" sap:label="報酬項目"/>
+        <NavigationProperty Name="currencyCodeNav" Relationship="SFOData.EmpPayCompRecurring_currencyCodeNav" FromRole="EmpPayCompRecurring" ToRole="currencyCodeNav_Currency" sap:label="通貨"/>
+        <NavigationProperty Name="frequencyNav" Relationship="SFOData.EmpPayCompRecurring_frequencyNav" FromRole="EmpPayCompRecurring" ToRole="frequencyNav_FOFrequency" sap:label="頻度"/>
+      </EntityType>
+      <EntityType Name="EmpPayCompNonRecurring" sap:label="一時報酬">
+        <Key><PropertyRef Name="payComponentCode"/><PropertyRef Name="payDate"/><PropertyRef Name="userId"/></Key>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="payComponentCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="報酬項目" MaxLength="128"/>
+        <Property Name="value" Type="Edm.Decimal" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="金額" Precision="18" Scale="2"/>
+        <Property Name="currencyCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="通貨" MaxLength="128"/>
+        <Property Name="payDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="支給日" sap:display-format="Date"/>
+        <Property Name="notes" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="備考" MaxLength="255"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpPayCompNonRecurring_userIdNav" FromRole="EmpPayCompNonRecurring" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="payComponentCodeNav" Relationship="SFOData.EmpPayCompNonRecurring_payComponentCodeNav" FromRole="EmpPayCompNonRecurring" ToRole="payComponentCodeNav_FOPayComponent" sap:label="報酬項目"/>
+        <NavigationProperty Name="currencyCodeNav" Relationship="SFOData.EmpPayCompNonRecurring_currencyCodeNav" FromRole="EmpPayCompNonRecurring" ToRole="currencyCodeNav_Currency" sap:label="通貨"/>
+      </EntityType>
+      <EntityType Name="EmpJobRelationships" sap:label="職務上の関係">
+        <Key><PropertyRef Name="relationshipType"/><PropertyRef Name="startDate"/><PropertyRef Name="userId"/></Key>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="relationshipType" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="関係の種類" MaxLength="128" sap:picklist="jobRelType"/>
+        <Property Name="relUserId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="関係者" MaxLength="128"/>
+        <NavigationProperty Name="userIdNav" Relationship="SFOData.EmpJobRelationships_userIdNav" FromRole="EmpJobRelationships" ToRole="userIdNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="relUserIdNav" Relationship="SFOData.EmpJobRelationships_relUserIdNav" FromRole="EmpJobRelationships" ToRole="relUserIdNav_User" sap:label="ユーザー"/>
+      </EntityType>
+      <EntityType Name="User" sap:label="ユーザー">
+        <Key><PropertyRef Name="userId"/></Key>
+        <Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ユーザーID" MaxLength="128"/>
+        <Property Name="username" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ログイン名" MaxLength="100"/>
+        <Property Name="lastName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="姓" MaxLength="128"/>
+        <Property Name="firstName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="名" MaxLength="128"/>
+        <Property Name="email" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="メールアドレス" MaxLength="100"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ステータス" MaxLength="128"/>
+        <Property Name="hireDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="入社日" sap:display-format="Date"/>
+        <Property Name="manager" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="上長" MaxLength="128"/>
+        <NavigationProperty Name="managerNav" Relationship="SFOData.User_managerNav" FromRole="User" ToRole="managerNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="personKeyNav" Relationship="SFOData.User_personKeyNav" FromRole="User" ToRole="personKeyNav_PerPerson" sap:label="個人情報（基本）"/>
+        <NavigationProperty Name="empInfo" Relationship="SFOData.User_empInfo" FromRole="User" ToRole="empInfo_EmpEmployment" sap:label="雇用情報"/>
+      </EntityType>
+      <EntityType Name="FOCompany" sap:label="会社">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="country" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="国" MaxLength="128"/>
+        <Property Name="currency" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="通貨" MaxLength="128"/>
+        <NavigationProperty Name="countryNav" Relationship="SFOData.FOCompany_countryNav" FromRole="FOCompany" ToRole="countryNav_Country" sap:label="国"/>
+        <NavigationProperty Name="currencyNav" Relationship="SFOData.FOCompany_currencyNav" FromRole="FOCompany" ToRole="currencyNav_Currency" sap:label="通貨"/>
+      </EntityType>
+      <EntityType Name="FOBusinessUnit" sap:label="事業本部">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="headOfUnit" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="本部長" MaxLength="128"/>
+        <NavigationProperty Name="headOfUnitNav" Relationship="SFOData.FOBusinessUnit_headOfUnitNav" FromRole="FOBusinessUnit" ToRole="headOfUnitNav_User" sap:label="ユーザー"/>
+      </EntityType>
+      <EntityType Name="FODivision" sap:label="事業部">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="parentBusinessUnit" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="上位の事業本部" MaxLength="128"/>
+        <Property Name="headOfUnit" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="事業部長" MaxLength="128"/>
+        <NavigationProperty Name="parentBusinessUnitNav" Relationship="SFOData.FODivision_parentBusinessUnitNav" FromRole="FODivision" ToRole="parentBusinessUnitNav_FOBusinessUnit" sap:label="事業本部"/>
+        <NavigationProperty Name="headOfUnitNav" Relationship="SFOData.FODivision_headOfUnitNav" FromRole="FODivision" ToRole="headOfUnitNav_User" sap:label="ユーザー"/>
+      </EntityType>
+      <EntityType Name="FODepartment" sap:label="部署">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="parent" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="上位部署" MaxLength="128"/>
+        <Property Name="headOfUnit" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="部署長" MaxLength="128"/>
+        <Property Name="costCenter" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="コストセンター" MaxLength="128"/>
+        <NavigationProperty Name="parentNav" Relationship="SFOData.FODepartment_parentNav" FromRole="FODepartment" ToRole="parentNav_FODepartment" sap:label="部署"/>
+        <NavigationProperty Name="headOfUnitNav" Relationship="SFOData.FODepartment_headOfUnitNav" FromRole="FODepartment" ToRole="headOfUnitNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="costCenterNav" Relationship="SFOData.FODepartment_costCenterNav" FromRole="FODepartment" ToRole="costCenterNav_FOCostCenter" sap:label="コストセンター"/>
+        <NavigationProperty Name="cust_toDivision" Relationship="SFOData.FODepartment_cust_toDivision" FromRole="FODepartment" ToRole="cust_toDivision_FODivision" sap:label="事業部"/>
+      </EntityType>
+      <EntityType Name="FOLocation" sap:label="勤務地">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="standardHours" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="所定労働時間（週）" Precision="18" Scale="2"/>
+        <Property Name="timezone" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="タイムゾーン" MaxLength="40"/>
+        <NavigationProperty Name="companyFlxNav" Relationship="SFOData.FOLocation_companyFlxNav" FromRole="FOLocation" ToRole="companyFlxNav_FOCompany" sap:label="会社"/>
+      </EntityType>
+      <EntityType Name="FOCostCenter" sap:label="コストセンター">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="legalEntity" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="会社" MaxLength="128"/>
+        <NavigationProperty Name="legalEntityNav" Relationship="SFOData.FOCostCenter_legalEntityNav" FromRole="FOCostCenter" ToRole="legalEntityNav_FOCompany" sap:label="会社"/>
+      </EntityType>
+      <EntityType Name="FOJobCode" sap:label="職務コード">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="grade" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="標準の等級" MaxLength="128"/>
+        <Property Name="isFulltimeEmployee" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="フルタイム"/>
+        <Property Name="isRegular" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="正規雇用"/>
+        <Property Name="standardHours" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="所定労働時間（週）" Precision="18" Scale="2"/>
+        <NavigationProperty Name="gradeNav" Relationship="SFOData.FOJobCode_gradeNav" FromRole="FOJobCode" ToRole="gradeNav_FOPayGrade" sap:label="等級"/>
+      </EntityType>
+      <EntityType Name="FOPayGrade" sap:label="等級">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="paygradeLevel" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="等級レベル"/>
+      </EntityType>
+      <EntityType Name="FOEventReason" sap:label="イベント事由">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="event" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="イベント" MaxLength="128" sap:picklist="event"/>
+        <Property Name="emplStatus" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="在籍ステータス" MaxLength="128" sap:picklist="employee-status"/>
+      </EntityType>
+      <EntityType Name="FOPayGroup" sap:label="給与グループ">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="payFrequency" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="支払頻度" MaxLength="128"/>
+        <NavigationProperty Name="payFrequencyNav" Relationship="SFOData.FOPayGroup_payFrequencyNav" FromRole="FOPayGroup" ToRole="payFrequencyNav_FOFrequency" sap:label="頻度"/>
+      </EntityType>
+      <EntityType Name="FOPayComponent" sap:label="報酬項目">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="payComponentType" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="種類" MaxLength="128" sap:picklist="payComponentType"/>
+        <Property Name="isRecurring" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="定期"/>
+        <Property Name="currency" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="通貨" MaxLength="128"/>
+        <Property Name="frequencyCode" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="頻度" MaxLength="128"/>
+        <Property Name="payComponentValue" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="標準の金額" Precision="18" Scale="2"/>
+        <NavigationProperty Name="currencyNav" Relationship="SFOData.FOPayComponent_currencyNav" FromRole="FOPayComponent" ToRole="currencyNav_Currency" sap:label="通貨"/>
+        <NavigationProperty Name="frequencyCodeNav" Relationship="SFOData.FOPayComponent_frequencyCodeNav" FromRole="FOPayComponent" ToRole="frequencyCodeNav_FOFrequency" sap:label="頻度"/>
+      </EntityType>
+      <EntityType Name="FOFrequency" sap:label="頻度">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="startDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="startDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="有効終了日" sap:display-format="Date"/>
+        <Property Name="name" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="128"/>
+        <Property Name="description" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="説明" MaxLength="255"/>
+        <Property Name="status" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="annualizationFactor" Type="Edm.Decimal" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="年換算係数" Precision="18" Scale="4"/>
+      </EntityType>
+      <EntityType Name="Country" sap:label="国">
+        <Key><PropertyRef Name="externalCode"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="currency" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="通貨" MaxLength="128"/>
+        <NavigationProperty Name="currencyNav" Relationship="SFOData.Country_currencyNav" FromRole="Country" ToRole="currencyNav_Currency" sap:label="通貨"/>
+      </EntityType>
+      <EntityType Name="Currency" sap:label="通貨">
+        <Key><PropertyRef Name="externalCode"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="symbol" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="記号" MaxLength="5"/>
+      </EntityType>
+      <EntityType Name="Position" sap:label="ポジション">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="ポジションコード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="company" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="会社" MaxLength="128"/>
+        <Property Name="department" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="部署" MaxLength="128"/>
+        <Property Name="jobCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="職務コード" MaxLength="128"/>
+        <Property Name="payGrade" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="等級" MaxLength="128"/>
+        <Property Name="location" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="勤務地" MaxLength="128"/>
+        <Property Name="costCenter" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="コストセンター" MaxLength="128"/>
+        <Property Name="parentPosition" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="上位ポジション" MaxLength="128"/>
+        <Property Name="vacant" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="空席"/>
+        <Property Name="targetFTE" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="目標 FTE" Precision="18" Scale="2"/>
+        <Property Name="standardHours" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="所定労働時間（週）" Precision="18" Scale="2"/>
+        <Property Name="cust_managerialTitle" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="役職" MaxLength="128" sap:picklist="JP_Position"/>
+        <NavigationProperty Name="companyNav" Relationship="SFOData.Position_companyNav" FromRole="Position" ToRole="companyNav_FOCompany" sap:label="会社"/>
+        <NavigationProperty Name="departmentNav" Relationship="SFOData.Position_departmentNav" FromRole="Position" ToRole="departmentNav_FODepartment" sap:label="部署"/>
+        <NavigationProperty Name="jobCodeNav" Relationship="SFOData.Position_jobCodeNav" FromRole="Position" ToRole="jobCodeNav_FOJobCode" sap:label="職務コード"/>
+        <NavigationProperty Name="payGradeNav" Relationship="SFOData.Position_payGradeNav" FromRole="Position" ToRole="payGradeNav_FOPayGrade" sap:label="等級"/>
+        <NavigationProperty Name="locationNav" Relationship="SFOData.Position_locationNav" FromRole="Position" ToRole="locationNav_FOLocation" sap:label="勤務地"/>
+        <NavigationProperty Name="costCenterNav" Relationship="SFOData.Position_costCenterNav" FromRole="Position" ToRole="costCenterNav_FOCostCenter" sap:label="コストセンター"/>
+        <NavigationProperty Name="parentPositionNav" Relationship="SFOData.Position_parentPositionNav" FromRole="Position" ToRole="parentPositionNav_Position" sap:label="ポジション"/>
+      </EntityType>
+      <EntityType Name="cust_JobFamily" sap:label="職群">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_defaultHRCategory" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="標準の人事区分" MaxLength="128" sap:picklist="JP_HRCategory"/>
+      </EntityType>
+      <EntityType Name="cust_QualificationMaster" sap:label="資格マスタ">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_category" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格分類" MaxLength="128" sap:picklist="JP_QualCategory"/>
+        <Property Name="cust_level" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="レベル" MaxLength="128" sap:picklist="JP_QualLevel"/>
+        <Property Name="cust_allowanceAmount" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格手当（月額）" Precision="18" Scale="0"/>
+        <Property Name="cust_currency" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="通貨" MaxLength="128"/>
+        <NavigationProperty Name="cust_currencyNav" Relationship="SFOData.cust_QualificationMaster_cust_currencyNav" FromRole="cust_QualificationMaster" ToRole="cust_currencyNav_Currency" sap:label="通貨"/>
+      </EntityType>
+      <EntityType Name="cust_Qualification" sap:label="保有資格">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_user" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="対象者" MaxLength="128"/>
+        <Property Name="cust_qualification" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格" MaxLength="128"/>
+        <Property Name="cust_category" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格分類" MaxLength="128" sap:picklist="JP_QualCategory"/>
+        <Property Name="cust_level" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="レベル" MaxLength="128" sap:picklist="JP_QualLevel"/>
+        <Property Name="cust_acquiredDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="取得日" sap:display-format="Date"/>
+        <Property Name="cust_expiryDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効期限" sap:display-format="Date"/>
+        <Property Name="cust_allowanceEligible" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格手当対象"/>
+        <Property Name="cust_allowanceAmount" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格手当（月額）" Precision="18" Scale="0"/>
+        <NavigationProperty Name="cust_userNav" Relationship="SFOData.cust_Qualification_cust_userNav" FromRole="cust_Qualification" ToRole="cust_userNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="cust_qualificationNav" Relationship="SFOData.cust_Qualification_cust_qualificationNav" FromRole="cust_Qualification" ToRole="cust_qualificationNav_cust_QualificationMaster" sap:label="資格マスタ"/>
+      </EntityType>
+      <EntityType Name="cust_PromotionHistory" sap:label="昇進昇格履歴">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_user" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="対象者" MaxLength="128"/>
+        <Property Name="cust_fromGrade" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="変更前等級" MaxLength="128"/>
+        <Property Name="cust_toGrade" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="変更後等級" MaxLength="128"/>
+        <Property Name="cust_promotionType" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="昇格区分" MaxLength="128" sap:picklist="JP_PromotionType"/>
+        <Property Name="cust_approvedDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="承認日" sap:display-format="Date"/>
+        <Property Name="cust_approver" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="承認者" MaxLength="128"/>
+        <NavigationProperty Name="cust_userNav" Relationship="SFOData.cust_PromotionHistory_cust_userNav" FromRole="cust_PromotionHistory" ToRole="cust_userNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="cust_fromGradeNav" Relationship="SFOData.cust_PromotionHistory_cust_fromGradeNav" FromRole="cust_PromotionHistory" ToRole="cust_fromGradeNav_FOPayGrade" sap:label="等級"/>
+        <NavigationProperty Name="cust_toGradeNav" Relationship="SFOData.cust_PromotionHistory_cust_toGradeNav" FromRole="cust_PromotionHistory" ToRole="cust_toGradeNav_FOPayGrade" sap:label="等級"/>
+        <NavigationProperty Name="cust_approverNav" Relationship="SFOData.cust_PromotionHistory_cust_approverNav" FromRole="cust_PromotionHistory" ToRole="cust_approverNav_User" sap:label="ユーザー"/>
+      </EntityType>
+      <EntityType Name="cust_TrainingPlan" sap:label="研修計画">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_user" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="対象者" MaxLength="128"/>
+        <Property Name="cust_fiscalYear" Type="Edm.Int64" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="年度"/>
+        <Property Name="cust_status" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="計画の状態" MaxLength="128" sap:picklist="JP_PlanStatus"/>
+        <Property Name="cust_totalHours" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="合計時間" Precision="18" Scale="1"/>
+        <NavigationProperty Name="cust_userNav" Relationship="SFOData.cust_TrainingPlan_cust_userNav" FromRole="cust_TrainingPlan" ToRole="cust_userNav_User" sap:label="ユーザー"/>
+        <NavigationProperty Name="cust_items" Relationship="SFOData.cust_TrainingPlan_cust_items" FromRole="cust_TrainingPlan" ToRole="cust_items_cust_TrainingItem" sap:label="研修計画の明細"/>
+      </EntityType>
+      <EntityType Name="cust_EmployeeProfile" sap:label="社員プロファイル">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="社員" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_employeeNo" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="社員番号"/>
+        <Property Name="cust_hireDate" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="入社日" MaxLength="8"/>
+        <Property Name="cust_hireYear" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="入社年度" MaxLength="4"/>
+        <Property Name="cust_serviceYears" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="勤続年数" Precision="18" Scale="1"/>
+        <Property Name="cust_retirementAge" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="定年年齢" MaxLength="3"/>
+        <Property Name="cust_remoteFlag" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="テレワーク対象" MaxLength="1"/>
+        <Property Name="cust_lastPromotionDate" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="最終等級変更日"/>
+        <Property Name="cust_grade" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="等級" MaxLength="10"/>
+        <Property Name="cust_position" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="役職" MaxLength="20"/>
+        <Property Name="cust_department" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="部署" MaxLength="10"/>
+        <Property Name="cust_qualificationAllowance" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="資格手当"/>
+        <Property Name="cust_syncedOn" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="最終同期日" sap:display-format="Date"/>
+        <NavigationProperty Name="externalCodeNav" Relationship="SFOData.cust_EmployeeProfile_externalCodeNav" FromRole="cust_EmployeeProfile" ToRole="externalCodeNav_User" sap:label="ユーザー"/>
+      </EntityType>
+      <EntityType Name="cust_AppraisalResult" sap:label="評価結果">
+        <Key><PropertyRef Name="externalCode"/><PropertyRef Name="effectiveStartDate"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="コード" MaxLength="128"/>
+        <Property Name="effectiveStartDate" Type="Edm.DateTime" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="有効開始日" sap:display-format="Date"/>
+        <Property Name="externalName" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="名称" MaxLength="255"/>
+        <Property Name="mdfSystemStatus" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="ステータス" MaxLength="128" sap:picklist="status"/>
+        <Property Name="cust_user" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="対象者" MaxLength="128"/>
+        <Property Name="cust_fiscalYear" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="年度" MaxLength="6"/>
+        <Property Name="cust_rank" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="評価ランク" MaxLength="2"/>
+        <Property Name="cust_score" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="評価点" Precision="18" Scale="1"/>
+        <Property Name="cust_finalized" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="確定"/>
+        <Property Name="cust_finalizedDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="確定日" sap:display-format="Date"/>
+        <NavigationProperty Name="cust_userNav" Relationship="SFOData.cust_AppraisalResult_cust_userNav" FromRole="cust_AppraisalResult" ToRole="cust_userNav_User" sap:label="ユーザー"/>
+      </EntityType>
+      <EntityType Name="cust_TrainingItem" sap:label="研修計画の明細">
+        <Key><PropertyRef Name="externalCode"/></Key>
+        <Property Name="externalCode" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:label="明細番号" MaxLength="128"/>
+        <Property Name="cust_course" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="研修名" MaxLength="255"/>
+        <Property Name="cust_hours" Type="Edm.Decimal" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="時間" Precision="18" Scale="1"/>
+        <Property Name="cust_completed" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="受講済み"/>
+        <Property Name="cust_completedDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:label="受講日" sap:display-format="Date"/>
+      </EntityType>
+      <Association Name="EmpJob_userIdNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpJob_eventReasonNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOEventReason" Multiplicity="0..1" Role="eventReasonNav_FOEventReason"/></Association>
+      <Association Name="EmpJob_companyNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOCompany" Multiplicity="0..1" Role="companyNav_FOCompany"/></Association>
+      <Association Name="EmpJob_businessUnitNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOBusinessUnit" Multiplicity="0..1" Role="businessUnitNav_FOBusinessUnit"/></Association>
+      <Association Name="EmpJob_divisionNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FODivision" Multiplicity="0..1" Role="divisionNav_FODivision"/></Association>
+      <Association Name="EmpJob_departmentNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FODepartment" Multiplicity="0..1" Role="departmentNav_FODepartment"/></Association>
+      <Association Name="EmpJob_locationNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOLocation" Multiplicity="0..1" Role="locationNav_FOLocation"/></Association>
+      <Association Name="EmpJob_costCenterNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOCostCenter" Multiplicity="0..1" Role="costCenterNav_FOCostCenter"/></Association>
+      <Association Name="EmpJob_jobCodeNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOJobCode" Multiplicity="0..1" Role="jobCodeNav_FOJobCode"/></Association>
+      <Association Name="EmpJob_payGradeNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.FOPayGrade" Multiplicity="0..1" Role="payGradeNav_FOPayGrade"/></Association>
+      <Association Name="EmpJob_positionNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.Position" Multiplicity="0..1" Role="positionNav_Position"/></Association>
+      <Association Name="EmpJob_managerIdNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.User" Multiplicity="0..1" Role="managerIdNav_User"/></Association>
+      <Association Name="EmpJob_customString4Nav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.cust_JobFamily" Multiplicity="0..1" Role="customString4Nav_cust_JobFamily"/></Association>
+      <Association Name="EmpJob_employmentNav"><End Type="SFOData.EmpJob" Multiplicity="*" Role="EmpJob"/><End Type="SFOData.EmpEmployment" Multiplicity="0..1" Role="employmentNav_EmpEmployment"/></Association>
+      <Association Name="EmpEmployment_userIdNav"><End Type="SFOData.EmpEmployment" Multiplicity="*" Role="EmpEmployment"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpEmployment_personNav"><End Type="SFOData.EmpEmployment" Multiplicity="*" Role="EmpEmployment"/><End Type="SFOData.PerPerson" Multiplicity="0..1" Role="personNav_PerPerson"/></Association>
+      <Association Name="EmpEmployment_jobInfoNav"><End Type="SFOData.EmpEmployment" Multiplicity="*" Role="EmpEmployment"/><End Type="SFOData.EmpJob" Multiplicity="*" Role="jobInfoNav_EmpJob"/></Association>
+      <Association Name="EmpEmployment_compInfoNav"><End Type="SFOData.EmpEmployment" Multiplicity="*" Role="EmpEmployment"/><End Type="SFOData.EmpCompensation" Multiplicity="*" Role="compInfoNav_EmpCompensation"/></Association>
+      <Association Name="EmpEmployment_employmentTerminationNav"><End Type="SFOData.EmpEmployment" Multiplicity="*" Role="EmpEmployment"/><End Type="SFOData.EmpEmploymentTermination" Multiplicity="0..1" Role="employmentTerminationNav_EmpEmploymentTermination"/></Association>
+      <Association Name="EmpEmploymentTermination_userIdNav"><End Type="SFOData.EmpEmploymentTermination" Multiplicity="*" Role="EmpEmploymentTermination"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpEmploymentTermination_eventReasonNav"><End Type="SFOData.EmpEmploymentTermination" Multiplicity="*" Role="EmpEmploymentTermination"/><End Type="SFOData.FOEventReason" Multiplicity="0..1" Role="eventReasonNav_FOEventReason"/></Association>
+      <Association Name="PerPerson_countryOfBirthNav"><End Type="SFOData.PerPerson" Multiplicity="*" Role="PerPerson"/><End Type="SFOData.Country" Multiplicity="0..1" Role="countryOfBirthNav_Country"/></Association>
+      <Association Name="PerPerson_personalInfoNav"><End Type="SFOData.PerPerson" Multiplicity="*" Role="PerPerson"/><End Type="SFOData.PerPersonal" Multiplicity="0..1" Role="personalInfoNav_PerPersonal"/></Association>
+      <Association Name="PerPerson_emailNav"><End Type="SFOData.PerPerson" Multiplicity="*" Role="PerPerson"/><End Type="SFOData.PerEmail" Multiplicity="*" Role="emailNav_PerEmail"/></Association>
+      <Association Name="PerPerson_nationalIdNav"><End Type="SFOData.PerPerson" Multiplicity="*" Role="PerPerson"/><End Type="SFOData.PerNationalId" Multiplicity="*" Role="nationalIdNav_PerNationalId"/></Association>
+      <Association Name="PerPerson_employmentNav"><End Type="SFOData.PerPerson" Multiplicity="*" Role="PerPerson"/><End Type="SFOData.EmpEmployment" Multiplicity="*" Role="employmentNav_EmpEmployment"/></Association>
+      <Association Name="PerPersonal_nationalityNav"><End Type="SFOData.PerPersonal" Multiplicity="*" Role="PerPersonal"/><End Type="SFOData.Country" Multiplicity="0..1" Role="nationalityNav_Country"/></Association>
+      <Association Name="PerNationalId_countryNav"><End Type="SFOData.PerNationalId" Multiplicity="*" Role="PerNationalId"/><End Type="SFOData.Country" Multiplicity="0..1" Role="countryNav_Country"/></Association>
+      <Association Name="EmpCompensation_userIdNav"><End Type="SFOData.EmpCompensation" Multiplicity="*" Role="EmpCompensation"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpCompensation_eventReasonNav"><End Type="SFOData.EmpCompensation" Multiplicity="*" Role="EmpCompensation"/><End Type="SFOData.FOEventReason" Multiplicity="0..1" Role="eventReasonNav_FOEventReason"/></Association>
+      <Association Name="EmpCompensation_payGroupNav"><End Type="SFOData.EmpCompensation" Multiplicity="*" Role="EmpCompensation"/><End Type="SFOData.FOPayGroup" Multiplicity="0..1" Role="payGroupNav_FOPayGroup"/></Association>
+      <Association Name="EmpCompensation_empPayCompRecurringNav"><End Type="SFOData.EmpCompensation" Multiplicity="*" Role="EmpCompensation"/><End Type="SFOData.EmpPayCompRecurring" Multiplicity="*" Role="empPayCompRecurringNav_EmpPayCompRecurring"/></Association>
+      <Association Name="EmpCompensation_employmentNav"><End Type="SFOData.EmpCompensation" Multiplicity="*" Role="EmpCompensation"/><End Type="SFOData.EmpEmployment" Multiplicity="0..1" Role="employmentNav_EmpEmployment"/></Association>
+      <Association Name="EmpPayCompRecurring_userIdNav"><End Type="SFOData.EmpPayCompRecurring" Multiplicity="*" Role="EmpPayCompRecurring"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpPayCompRecurring_payComponentNav"><End Type="SFOData.EmpPayCompRecurring" Multiplicity="*" Role="EmpPayCompRecurring"/><End Type="SFOData.FOPayComponent" Multiplicity="0..1" Role="payComponentNav_FOPayComponent"/></Association>
+      <Association Name="EmpPayCompRecurring_currencyCodeNav"><End Type="SFOData.EmpPayCompRecurring" Multiplicity="*" Role="EmpPayCompRecurring"/><End Type="SFOData.Currency" Multiplicity="0..1" Role="currencyCodeNav_Currency"/></Association>
+      <Association Name="EmpPayCompRecurring_frequencyNav"><End Type="SFOData.EmpPayCompRecurring" Multiplicity="*" Role="EmpPayCompRecurring"/><End Type="SFOData.FOFrequency" Multiplicity="0..1" Role="frequencyNav_FOFrequency"/></Association>
+      <Association Name="EmpPayCompNonRecurring_userIdNav"><End Type="SFOData.EmpPayCompNonRecurring" Multiplicity="*" Role="EmpPayCompNonRecurring"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpPayCompNonRecurring_payComponentCodeNav"><End Type="SFOData.EmpPayCompNonRecurring" Multiplicity="*" Role="EmpPayCompNonRecurring"/><End Type="SFOData.FOPayComponent" Multiplicity="0..1" Role="payComponentCodeNav_FOPayComponent"/></Association>
+      <Association Name="EmpPayCompNonRecurring_currencyCodeNav"><End Type="SFOData.EmpPayCompNonRecurring" Multiplicity="*" Role="EmpPayCompNonRecurring"/><End Type="SFOData.Currency" Multiplicity="0..1" Role="currencyCodeNav_Currency"/></Association>
+      <Association Name="EmpJobRelationships_userIdNav"><End Type="SFOData.EmpJobRelationships" Multiplicity="*" Role="EmpJobRelationships"/><End Type="SFOData.User" Multiplicity="0..1" Role="userIdNav_User"/></Association>
+      <Association Name="EmpJobRelationships_relUserIdNav"><End Type="SFOData.EmpJobRelationships" Multiplicity="*" Role="EmpJobRelationships"/><End Type="SFOData.User" Multiplicity="0..1" Role="relUserIdNav_User"/></Association>
+      <Association Name="User_managerNav"><End Type="SFOData.User" Multiplicity="*" Role="User"/><End Type="SFOData.User" Multiplicity="0..1" Role="managerNav_User"/></Association>
+      <Association Name="User_personKeyNav"><End Type="SFOData.User" Multiplicity="*" Role="User"/><End Type="SFOData.PerPerson" Multiplicity="0..1" Role="personKeyNav_PerPerson"/></Association>
+      <Association Name="User_empInfo"><End Type="SFOData.User" Multiplicity="*" Role="User"/><End Type="SFOData.EmpEmployment" Multiplicity="0..1" Role="empInfo_EmpEmployment"/></Association>
+      <Association Name="FOCompany_countryNav"><End Type="SFOData.FOCompany" Multiplicity="*" Role="FOCompany"/><End Type="SFOData.Country" Multiplicity="0..1" Role="countryNav_Country"/></Association>
+      <Association Name="FOCompany_currencyNav"><End Type="SFOData.FOCompany" Multiplicity="*" Role="FOCompany"/><End Type="SFOData.Currency" Multiplicity="0..1" Role="currencyNav_Currency"/></Association>
+      <Association Name="FOBusinessUnit_headOfUnitNav"><End Type="SFOData.FOBusinessUnit" Multiplicity="*" Role="FOBusinessUnit"/><End Type="SFOData.User" Multiplicity="0..1" Role="headOfUnitNav_User"/></Association>
+      <Association Name="FODivision_parentBusinessUnitNav"><End Type="SFOData.FODivision" Multiplicity="*" Role="FODivision"/><End Type="SFOData.FOBusinessUnit" Multiplicity="0..1" Role="parentBusinessUnitNav_FOBusinessUnit"/></Association>
+      <Association Name="FODivision_headOfUnitNav"><End Type="SFOData.FODivision" Multiplicity="*" Role="FODivision"/><End Type="SFOData.User" Multiplicity="0..1" Role="headOfUnitNav_User"/></Association>
+      <Association Name="FODepartment_parentNav"><End Type="SFOData.FODepartment" Multiplicity="*" Role="FODepartment"/><End Type="SFOData.FODepartment" Multiplicity="0..1" Role="parentNav_FODepartment"/></Association>
+      <Association Name="FODepartment_headOfUnitNav"><End Type="SFOData.FODepartment" Multiplicity="*" Role="FODepartment"/><End Type="SFOData.User" Multiplicity="0..1" Role="headOfUnitNav_User"/></Association>
+      <Association Name="FODepartment_costCenterNav"><End Type="SFOData.FODepartment" Multiplicity="*" Role="FODepartment"/><End Type="SFOData.FOCostCenter" Multiplicity="0..1" Role="costCenterNav_FOCostCenter"/></Association>
+      <Association Name="FODepartment_cust_toDivision"><End Type="SFOData.FODepartment" Multiplicity="*" Role="FODepartment"/><End Type="SFOData.FODivision" Multiplicity="*" Role="cust_toDivision_FODivision"/></Association>
+      <Association Name="FOLocation_companyFlxNav"><End Type="SFOData.FOLocation" Multiplicity="*" Role="FOLocation"/><End Type="SFOData.FOCompany" Multiplicity="*" Role="companyFlxNav_FOCompany"/></Association>
+      <Association Name="FOCostCenter_legalEntityNav"><End Type="SFOData.FOCostCenter" Multiplicity="*" Role="FOCostCenter"/><End Type="SFOData.FOCompany" Multiplicity="0..1" Role="legalEntityNav_FOCompany"/></Association>
+      <Association Name="FOJobCode_gradeNav"><End Type="SFOData.FOJobCode" Multiplicity="*" Role="FOJobCode"/><End Type="SFOData.FOPayGrade" Multiplicity="0..1" Role="gradeNav_FOPayGrade"/></Association>
+      <Association Name="FOPayGroup_payFrequencyNav"><End Type="SFOData.FOPayGroup" Multiplicity="*" Role="FOPayGroup"/><End Type="SFOData.FOFrequency" Multiplicity="0..1" Role="payFrequencyNav_FOFrequency"/></Association>
+      <Association Name="FOPayComponent_currencyNav"><End Type="SFOData.FOPayComponent" Multiplicity="*" Role="FOPayComponent"/><End Type="SFOData.Currency" Multiplicity="0..1" Role="currencyNav_Currency"/></Association>
+      <Association Name="FOPayComponent_frequencyCodeNav"><End Type="SFOData.FOPayComponent" Multiplicity="*" Role="FOPayComponent"/><End Type="SFOData.FOFrequency" Multiplicity="0..1" Role="frequencyCodeNav_FOFrequency"/></Association>
+      <Association Name="Country_currencyNav"><End Type="SFOData.Country" Multiplicity="*" Role="Country"/><End Type="SFOData.Currency" Multiplicity="0..1" Role="currencyNav_Currency"/></Association>
+      <Association Name="Position_companyNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.FOCompany" Multiplicity="0..1" Role="companyNav_FOCompany"/></Association>
+      <Association Name="Position_departmentNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.FODepartment" Multiplicity="0..1" Role="departmentNav_FODepartment"/></Association>
+      <Association Name="Position_jobCodeNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.FOJobCode" Multiplicity="0..1" Role="jobCodeNav_FOJobCode"/></Association>
+      <Association Name="Position_payGradeNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.FOPayGrade" Multiplicity="0..1" Role="payGradeNav_FOPayGrade"/></Association>
+      <Association Name="Position_locationNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.FOLocation" Multiplicity="0..1" Role="locationNav_FOLocation"/></Association>
+      <Association Name="Position_costCenterNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.FOCostCenter" Multiplicity="0..1" Role="costCenterNav_FOCostCenter"/></Association>
+      <Association Name="Position_parentPositionNav"><End Type="SFOData.Position" Multiplicity="*" Role="Position"/><End Type="SFOData.Position" Multiplicity="0..1" Role="parentPositionNav_Position"/></Association>
+      <Association Name="cust_QualificationMaster_cust_currencyNav"><End Type="SFOData.cust_QualificationMaster" Multiplicity="*" Role="cust_QualificationMaster"/><End Type="SFOData.Currency" Multiplicity="0..1" Role="cust_currencyNav_Currency"/></Association>
+      <Association Name="cust_Qualification_cust_userNav"><End Type="SFOData.cust_Qualification" Multiplicity="*" Role="cust_Qualification"/><End Type="SFOData.User" Multiplicity="0..1" Role="cust_userNav_User"/></Association>
+      <Association Name="cust_Qualification_cust_qualificationNav"><End Type="SFOData.cust_Qualification" Multiplicity="*" Role="cust_Qualification"/><End Type="SFOData.cust_QualificationMaster" Multiplicity="0..1" Role="cust_qualificationNav_cust_QualificationMaster"/></Association>
+      <Association Name="cust_PromotionHistory_cust_userNav"><End Type="SFOData.cust_PromotionHistory" Multiplicity="*" Role="cust_PromotionHistory"/><End Type="SFOData.User" Multiplicity="0..1" Role="cust_userNav_User"/></Association>
+      <Association Name="cust_PromotionHistory_cust_fromGradeNav"><End Type="SFOData.cust_PromotionHistory" Multiplicity="*" Role="cust_PromotionHistory"/><End Type="SFOData.FOPayGrade" Multiplicity="0..1" Role="cust_fromGradeNav_FOPayGrade"/></Association>
+      <Association Name="cust_PromotionHistory_cust_toGradeNav"><End Type="SFOData.cust_PromotionHistory" Multiplicity="*" Role="cust_PromotionHistory"/><End Type="SFOData.FOPayGrade" Multiplicity="0..1" Role="cust_toGradeNav_FOPayGrade"/></Association>
+      <Association Name="cust_PromotionHistory_cust_approverNav"><End Type="SFOData.cust_PromotionHistory" Multiplicity="*" Role="cust_PromotionHistory"/><End Type="SFOData.User" Multiplicity="0..1" Role="cust_approverNav_User"/></Association>
+      <Association Name="cust_TrainingPlan_cust_userNav"><End Type="SFOData.cust_TrainingPlan" Multiplicity="*" Role="cust_TrainingPlan"/><End Type="SFOData.User" Multiplicity="0..1" Role="cust_userNav_User"/></Association>
+      <Association Name="cust_TrainingPlan_cust_items"><End Type="SFOData.cust_TrainingPlan" Multiplicity="*" Role="cust_TrainingPlan"/><End Type="SFOData.cust_TrainingItem" Multiplicity="*" Role="cust_items_cust_TrainingItem"/></Association>
+      <Association Name="cust_EmployeeProfile_externalCodeNav"><End Type="SFOData.cust_EmployeeProfile" Multiplicity="*" Role="cust_EmployeeProfile"/><End Type="SFOData.User" Multiplicity="0..1" Role="externalCodeNav_User"/></Association>
+      <Association Name="cust_AppraisalResult_cust_userNav"><End Type="SFOData.cust_AppraisalResult" Multiplicity="*" Role="cust_AppraisalResult"/><End Type="SFOData.User" Multiplicity="0..1" Role="cust_userNav_User"/></Association>
+      <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="EmpJob" EntityType="SFOData.EmpJob"/>
+        <EntitySet Name="EmpEmployment" EntityType="SFOData.EmpEmployment"/>
+        <EntitySet Name="EmpEmploymentTermination" EntityType="SFOData.EmpEmploymentTermination"/>
+        <EntitySet Name="PerPerson" EntityType="SFOData.PerPerson"/>
+        <EntitySet Name="PerPersonal" EntityType="SFOData.PerPersonal"/>
+        <EntitySet Name="PerEmail" EntityType="SFOData.PerEmail"/>
+        <EntitySet Name="PerNationalId" EntityType="SFOData.PerNationalId"/>
+        <EntitySet Name="EmpCompensation" EntityType="SFOData.EmpCompensation"/>
+        <EntitySet Name="EmpPayCompRecurring" EntityType="SFOData.EmpPayCompRecurring"/>
+        <EntitySet Name="EmpPayCompNonRecurring" EntityType="SFOData.EmpPayCompNonRecurring"/>
+        <EntitySet Name="EmpJobRelationships" EntityType="SFOData.EmpJobRelationships"/>
+        <EntitySet Name="User" EntityType="SFOData.User"/>
+        <EntitySet Name="FOCompany" EntityType="SFOData.FOCompany"/>
+        <EntitySet Name="FOBusinessUnit" EntityType="SFOData.FOBusinessUnit"/>
+        <EntitySet Name="FODivision" EntityType="SFOData.FODivision"/>
+        <EntitySet Name="FODepartment" EntityType="SFOData.FODepartment"/>
+        <EntitySet Name="FOLocation" EntityType="SFOData.FOLocation"/>
+        <EntitySet Name="FOCostCenter" EntityType="SFOData.FOCostCenter"/>
+        <EntitySet Name="FOJobCode" EntityType="SFOData.FOJobCode"/>
+        <EntitySet Name="FOPayGrade" EntityType="SFOData.FOPayGrade"/>
+        <EntitySet Name="FOEventReason" EntityType="SFOData.FOEventReason"/>
+        <EntitySet Name="FOPayGroup" EntityType="SFOData.FOPayGroup"/>
+        <EntitySet Name="FOPayComponent" EntityType="SFOData.FOPayComponent"/>
+        <EntitySet Name="FOFrequency" EntityType="SFOData.FOFrequency"/>
+        <EntitySet Name="Country" EntityType="SFOData.Country"/>
+        <EntitySet Name="Currency" EntityType="SFOData.Currency"/>
+        <EntitySet Name="Position" EntityType="SFOData.Position"/>
+        <EntitySet Name="cust_JobFamily" EntityType="SFOData.cust_JobFamily"/>
+        <EntitySet Name="cust_QualificationMaster" EntityType="SFOData.cust_QualificationMaster"/>
+        <EntitySet Name="cust_Qualification" EntityType="SFOData.cust_Qualification"/>
+        <EntitySet Name="cust_PromotionHistory" EntityType="SFOData.cust_PromotionHistory"/>
+        <EntitySet Name="cust_TrainingPlan" EntityType="SFOData.cust_TrainingPlan"/>
+        <EntitySet Name="cust_EmployeeProfile" EntityType="SFOData.cust_EmployeeProfile"/>
+        <EntitySet Name="cust_AppraisalResult" EntityType="SFOData.cust_AppraisalResult"/>
+        <EntitySet Name="cust_TrainingItem" EntityType="SFOData.cust_TrainingItem"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,146 @@
+{
+ "d": {
+  "results": [
+   {
+    "userId": "EMP0001",
+    "username": "emp0001",
+    "lastName": "山田",
+    "firstName": "太郎",
+    "lastName_en": "Yamada",
+    "firstName_en": "Taro",
+    "status": "active",
+    "email": "emp0001@demo-corp.example"
+   },
+   {
+    "userId": "EMP0002",
+    "username": "emp0002",
+    "lastName": "佐藤",
+    "firstName": "健一",
+    "lastName_en": "Sato",
+    "firstName_en": "Kenichi",
+    "status": "active",
+    "email": "emp0002@demo-corp.example"
+   },
+   {
+    "userId": "EMP0003",
+    "username": "emp0003",
+    "lastName": "鈴木",
+    "firstName": "美咲",
+    "lastName_en": "Suzuki",
+    "firstName_en": "Misaki",
+    "status": "active",
+    "email": "emp0003@demo-corp.example"
+   },
+   {
+    "userId": "EMP0004",
+    "username": "emp0004",
+    "lastName": "高橋",
+    "firstName": "誠",
+    "lastName_en": "Takahashi",
+    "firstName_en": "Makoto",
+    "status": "active",
+    "email": "emp0004@demo-corp.example"
+   },
+   {
+    "userId": "EMP0005",
+    "username": "emp0005",
+    "lastName": "田中",
+    "firstName": "裕子",
+    "lastName_en": "Tanaka",
+    "firstName_en": "Yuko",
+    "status": "active",
+    "email": "emp0005@demo-corp.example"
+   },
+   {
+    "userId": "EMP0006",
+    "username": "emp0006",
+    "lastName": "伊藤",
+    "firstName": "大輔",
+    "lastName_en": "Ito",
+    "firstName_en": "Daisuke",
+    "status": "active",
+    "email": "emp0006@demo-corp.example"
+   },
+   {
+    "userId": "EMP0007",
+    "username": "emp0007",
+    "lastName": "渡辺",
+    "firstName": "直樹",
+    "lastName_en": "Watanabe",
+    "firstName_en": "Naoki",
+    "status": "active",
+    "email": "emp0007@demo-corp.example"
+   },
+   {
+    "userId": "EMP0008",
+    "username": "emp0008",
+    "lastName": "中村",
+    "firstName": "恵",
+    "lastName_en": "Nakamura",
+    "firstName_en": "Megumi",
+    "status": "active",
+    "email": "emp0008@demo-corp.example"
+   },
+   {
+    "userId": "EMP0009",
+    "username": "emp0009",
+    "lastName": "小林",
+    "firstName": "翔",
+    "lastName_en": "Kobayashi",
+    "firstName_en": "Sho",
+    "status": "active",
+    "email": "emp0009@demo-corp.example"
+   },
+   {
+    "userId": "EMP0010",
+    "username": "emp0010",
+    "lastName": "加藤",
+    "firstName": "彩",
+    "lastName_en": "Kato",
+    "firstName_en": "Aya",
+    "status": "active",
+    "email": "emp0010@demo-corp.example"
+   },
+   {
+    "userId": "EMP0011",
+    "username": "emp0011",
+    "lastName": "吉田",
+    "firstName": "拓也",
+    "lastName_en": "Yoshida",
+    "firstName_en": "Takuya",
+    "status": "active",
+    "email": "emp0011@demo-corp.example"
+   },
+   {
+    "userId": "EMP0012",
+    "username": "emp0012",
+    "lastName": "山本",
+    "firstName": "千尋",
+    "lastName_en": "Yamamoto",
+    "firstName_en": "Chihiro",
+    "status": "active",
+    "email": "emp0012@demo-corp.example"
+   },
+   {
+    "userId": "HR_ADMIN",
+    "username": "hr_admin",
+    "lastName": "人事",
+    "firstName": "管理者",
+    "lastName_en": "HR",
+    "firstName_en": "Admin",
+    "status": "active",
+    "email": "hr_admin@demo-corp.example"
+   },
+   {
+    "userId": "EMP0099",
+    "username": "emp0099",
+    "lastName": "松本",
+    "firstName": "浩二",
+    "lastName_en": "Matsumoto",
+    "firstName_en": "Koji",
+    "status": "inactive",
+    "email": "emp0099@demo-corp.example"
+   }
+  ]
+ }
+}

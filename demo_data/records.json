@@ -1,0 +1,972 @@
+{
+ "Country": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "JPN",
+     "name_ja_JP": "日本",
+     "name_en_US": "Japan",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "currency": "JPY"
+    },
+    {
+     "externalCode": "USA",
+     "name_ja_JP": "アメリカ合衆国",
+     "name_en_US": "United States",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "currency": "USD"
+    },
+    {
+     "externalCode": "CHN",
+     "name_ja_JP": "中国",
+     "name_en_US": "China",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "currency": "CNY"
+    },
+    {
+     "externalCode": "GBR",
+     "name_ja_JP": "イギリス",
+     "name_en_US": "United Kingdom",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "currency": "GBP"
+    }
+   ]
+  }
+ },
+ "Currency": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "JPY",
+     "name_ja_JP": "日本円",
+     "name_en_US": "Japanese Yen",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "symbol": "¥"
+    },
+    {
+     "externalCode": "USD",
+     "name_ja_JP": "米ドル",
+     "name_en_US": "US Dollar",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "symbol": "$"
+    },
+    {
+     "externalCode": "CNY",
+     "name_ja_JP": "人民元",
+     "name_en_US": "Chinese Yuan",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "symbol": "元"
+    },
+    {
+     "externalCode": "GBP",
+     "name_ja_JP": "英ポンド",
+     "name_en_US": "British Pound",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "symbol": "£"
+    },
+    {
+     "externalCode": "EUR",
+     "name_ja_JP": "ユーロ",
+     "name_en_US": "Euro",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "symbol": "€"
+    }
+   ]
+  }
+ },
+ "FOCompany": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "JP01",
+     "name_ja_JP": "デモ株式会社",
+     "name_en_US": "Demo Corp Japan",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "country": "JPN",
+     "currency": "JPY"
+    },
+    {
+     "externalCode": "JP02",
+     "name_ja_JP": "デモソリューションズ株式会社",
+     "name_en_US": "Demo Solutions Japan",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "country": "JPN",
+     "currency": "JPY"
+    },
+    {
+     "externalCode": "US01",
+     "name_ja_JP": "Demo Corp USA",
+     "name_en_US": "Demo Corp USA",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "country": "USA",
+     "currency": "USD"
+    },
+    {
+     "externalCode": "JP09",
+     "name_ja_JP": "デモ物流株式会社（清算済み）",
+     "name_en_US": "Demo Logistics (Liquidated)",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "country": "JPN",
+     "currency": "JPY"
+    }
+   ]
+  }
+ },
+ "FOBusinessUnit": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "BU_SAL",
+     "name_ja_JP": "営業本部",
+     "name_en_US": "Sales",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "headOfUnit": "EMP0002"
+    },
+    {
+     "externalCode": "BU_ENG",
+     "name_ja_JP": "技術本部",
+     "name_en_US": "Engineering",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "headOfUnit": "EMP0003"
+    },
+    {
+     "externalCode": "BU_ADM",
+     "name_ja_JP": "管理本部",
+     "name_en_US": "Corporate",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "headOfUnit": "EMP0004"
+    }
+   ]
+  }
+ },
+ "FODivision": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "DV_SAL1",
+     "name_ja_JP": "第一営業事業部",
+     "name_en_US": "Sales Division 1",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parentBusinessUnit": "BU_SAL"
+    },
+    {
+     "externalCode": "DV_SAL2",
+     "name_ja_JP": "第二営業事業部",
+     "name_en_US": "Sales Division 2",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parentBusinessUnit": "BU_SAL"
+    },
+    {
+     "externalCode": "DV_ENG",
+     "name_ja_JP": "開発事業部",
+     "name_en_US": "Development",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parentBusinessUnit": "BU_ENG"
+    },
+    {
+     "externalCode": "DV_ADM",
+     "name_ja_JP": "管理事業部",
+     "name_en_US": "Administration",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parentBusinessUnit": "BU_ADM"
+    }
+   ]
+  }
+ },
+ "FOCostCenter": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "CC1100",
+     "name_ja_JP": "第一営業部",
+     "name_en_US": "Sales Dept. 1",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "legalEntity": "JP01"
+    },
+    {
+     "externalCode": "CC1200",
+     "name_ja_JP": "第二営業部",
+     "name_en_US": "Sales Dept. 2",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "legalEntity": "JP01"
+    },
+    {
+     "externalCode": "CC2100",
+     "name_ja_JP": "開発部",
+     "name_en_US": "Development",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "legalEntity": "JP01"
+    },
+    {
+     "externalCode": "CC3100",
+     "name_ja_JP": "人事部",
+     "name_en_US": "Human Resources",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "legalEntity": "JP01"
+    },
+    {
+     "externalCode": "CC3200",
+     "name_ja_JP": "経理部",
+     "name_en_US": "Accounting",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "legalEntity": "JP01"
+    },
+    {
+     "externalCode": "CC9000",
+     "name_ja_JP": "旧管理部",
+     "name_en_US": "Old Admin",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "legalEntity": "JP01"
+    }
+   ]
+  }
+ },
+ "FODepartment": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "D1000",
+     "name_ja_JP": "営業本部",
+     "name_en_US": "Sales HQ",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "headOfUnit": "EMP0002"
+    },
+    {
+     "externalCode": "D1100",
+     "name_ja_JP": "第一営業部",
+     "name_en_US": "Sales Dept. 1",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D1000",
+     "headOfUnit": "EMP0005",
+     "costCenter": "CC1100"
+    },
+    {
+     "externalCode": "D1110",
+     "name_ja_JP": "第一営業部 東京課",
+     "name_en_US": "Sales 1 Tokyo",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D1100",
+     "costCenter": "CC1100"
+    },
+    {
+     "externalCode": "D1120",
+     "name_ja_JP": "第一営業部 大阪課",
+     "name_en_US": "Sales 1 Osaka",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D1100",
+     "costCenter": "CC1100"
+    },
+    {
+     "externalCode": "D1200",
+     "name_ja_JP": "第二営業部",
+     "name_en_US": "Sales Dept. 2",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D1000",
+     "headOfUnit": "EMP0006",
+     "costCenter": "CC1200"
+    },
+    {
+     "externalCode": "D2000",
+     "name_ja_JP": "技術本部",
+     "name_en_US": "Engineering HQ",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "headOfUnit": "EMP0003"
+    },
+    {
+     "externalCode": "D2100",
+     "name_ja_JP": "開発部",
+     "name_en_US": "Development",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D2000",
+     "headOfUnit": "EMP0007",
+     "costCenter": "CC2100"
+    },
+    {
+     "externalCode": "D2200",
+     "name_ja_JP": "品質保証部",
+     "name_en_US": "Quality Assurance",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D2000",
+     "costCenter": "CC2100"
+    },
+    {
+     "externalCode": "D3000",
+     "name_ja_JP": "管理本部",
+     "name_en_US": "Corporate HQ",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "headOfUnit": "EMP0004"
+    },
+    {
+     "externalCode": "D3100",
+     "name_ja_JP": "人事部",
+     "name_en_US": "Human Resources",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D3000",
+     "headOfUnit": "EMP0008",
+     "costCenter": "CC3100"
+    },
+    {
+     "externalCode": "D3200",
+     "name_ja_JP": "経理部",
+     "name_en_US": "Accounting",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D3000",
+     "costCenter": "CC3200"
+    },
+    {
+     "externalCode": "D3900",
+     "name_ja_JP": "旧総務部",
+     "name_en_US": "Old General Affairs",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "parent": "D3000"
+    },
+    {
+     "externalCode": "D4000",
+     "name_ja_JP": "新規事業準備室",
+     "name_en_US": "New Business Office",
+     "status": "A",
+     "startDate": "/Date(1806537600000)/",
+     "parent": "D3000"
+    }
+   ]
+  }
+ },
+ "FOLocation": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "LOC_TKY",
+     "name_ja_JP": "東京本社",
+     "name_en_US": "Tokyo HQ",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "standardHours": 40,
+     "timezone": "Asia/Tokyo"
+    },
+    {
+     "externalCode": "LOC_OSK",
+     "name_ja_JP": "大阪支社",
+     "name_en_US": "Osaka Branch",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "standardHours": 40,
+     "timezone": "Asia/Tokyo"
+    },
+    {
+     "externalCode": "LOC_NGY",
+     "name_ja_JP": "名古屋営業所",
+     "name_en_US": "Nagoya Office",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "standardHours": 37.5,
+     "timezone": "Asia/Tokyo"
+    },
+    {
+     "externalCode": "LOC_NYC",
+     "name_ja_JP": "ニューヨーク",
+     "name_en_US": "New York",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "standardHours": 40,
+     "timezone": "America/New_York"
+    },
+    {
+     "externalCode": "LOC_SDI",
+     "name_ja_JP": "仙台営業所（閉鎖）",
+     "name_en_US": "Sendai Office (Closed)",
+     "status": "A",
+     "startDate": "/Date(1270080000000)/",
+     "endDate": "/Date(1711843200000)/",
+     "standardHours": 40,
+     "timezone": "Asia/Tokyo"
+    }
+   ]
+  }
+ },
+ "FOPayGrade": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "G1",
+     "name_ja_JP": "1等級",
+     "name_en_US": "Grade 1",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 1
+    },
+    {
+     "externalCode": "G2",
+     "name_ja_JP": "2等級",
+     "name_en_US": "Grade 2",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 2
+    },
+    {
+     "externalCode": "G3",
+     "name_ja_JP": "3等級",
+     "name_en_US": "Grade 3",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 3
+    },
+    {
+     "externalCode": "G4",
+     "name_ja_JP": "4等級",
+     "name_en_US": "Grade 4",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 4
+    },
+    {
+     "externalCode": "G5",
+     "name_ja_JP": "5等級",
+     "name_en_US": "Grade 5",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 5
+    },
+    {
+     "externalCode": "G6",
+     "name_ja_JP": "6等級（管理職）",
+     "name_en_US": "Grade 6 (Manager)",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 6
+    },
+    {
+     "externalCode": "G7",
+     "name_ja_JP": "7等級（管理職）",
+     "name_en_US": "Grade 7 (Manager)",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 7
+    },
+    {
+     "externalCode": "G8",
+     "name_ja_JP": "8等級（上級管理職）",
+     "name_en_US": "Grade 8 (Senior Manager)",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 8
+    },
+    {
+     "externalCode": "GX",
+     "name_ja_JP": "旧等級",
+     "name_en_US": "Legacy Grade",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "paygradeLevel": 0
+    }
+   ]
+  }
+ },
+ "FOJobCode": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "JC_SALES",
+     "name_ja_JP": "営業",
+     "name_en_US": "Sales",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "grade": "G3",
+     "isFulltimeEmployee": true,
+     "isRegular": true,
+     "standardHours": 40
+    },
+    {
+     "externalCode": "JC_ENG",
+     "name_ja_JP": "エンジニア",
+     "name_en_US": "Engineer",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "grade": "G3",
+     "isFulltimeEmployee": true,
+     "isRegular": true,
+     "standardHours": 40
+    },
+    {
+     "externalCode": "JC_HR",
+     "name_ja_JP": "人事",
+     "name_en_US": "HR Specialist",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "grade": "G3",
+     "isFulltimeEmployee": true,
+     "isRegular": true,
+     "standardHours": 40
+    },
+    {
+     "externalCode": "JC_ACC",
+     "name_ja_JP": "経理",
+     "name_en_US": "Accountant",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "grade": "G3",
+     "isFulltimeEmployee": true,
+     "isRegular": true,
+     "standardHours": 40
+    },
+    {
+     "externalCode": "JC_MGR",
+     "name_ja_JP": "管理職",
+     "name_en_US": "Manager",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "grade": "G6",
+     "isFulltimeEmployee": true,
+     "isRegular": true,
+     "standardHours": 40
+    },
+    {
+     "externalCode": "JC_PT",
+     "name_ja_JP": "パートスタッフ",
+     "name_en_US": "Part-time Staff",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "grade": "G1",
+     "isFulltimeEmployee": false,
+     "isRegular": false,
+     "standardHours": 20
+    }
+   ]
+  }
+ },
+ "FOPayGroup": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "PG_JP_M",
+     "name_ja_JP": "日本・月給",
+     "name_en_US": "Japan Monthly",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payFrequency": "MON"
+    },
+    {
+     "externalCode": "PG_JP_H",
+     "name_ja_JP": "日本・時給",
+     "name_en_US": "Japan Hourly",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payFrequency": "MON"
+    },
+    {
+     "externalCode": "PG_US",
+     "name_ja_JP": "米国・隔週",
+     "name_en_US": "US Bi-weekly",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payFrequency": "BIW"
+    }
+   ]
+  }
+ },
+ "FOFrequency": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "MON",
+     "name_ja_JP": "月次",
+     "name_en_US": "Monthly",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "annualizationFactor": 12
+    },
+    {
+     "externalCode": "ANN",
+     "name_ja_JP": "年次",
+     "name_en_US": "Annual",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "annualizationFactor": 1
+    },
+    {
+     "externalCode": "BIW",
+     "name_ja_JP": "隔週",
+     "name_en_US": "Bi-weekly",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "annualizationFactor": 26
+    },
+    {
+     "externalCode": "ONE",
+     "name_ja_JP": "一回",
+     "name_en_US": "One-time",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "annualizationFactor": 1
+    }
+   ]
+  }
+ },
+ "FOPayComponent": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "BASE",
+     "name_ja_JP": "基本給",
+     "name_en_US": "Base Salary",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": true,
+     "currency": "JPY",
+     "frequencyCode": "MON"
+    },
+    {
+     "externalCode": "ALW_POS",
+     "name_ja_JP": "役職手当",
+     "name_en_US": "Position Allowance",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": true,
+     "currency": "JPY",
+     "frequencyCode": "MON"
+    },
+    {
+     "externalCode": "ALW_QUAL",
+     "name_ja_JP": "資格手当",
+     "name_en_US": "Qualification Allowance",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": true,
+     "currency": "JPY",
+     "frequencyCode": "MON"
+    },
+    {
+     "externalCode": "ALW_COMM",
+     "name_ja_JP": "通勤手当",
+     "name_en_US": "Commuting Allowance",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": true,
+     "currency": "JPY",
+     "frequencyCode": "MON"
+    },
+    {
+     "externalCode": "ALW_REMOTE",
+     "name_ja_JP": "在宅勤務手当",
+     "name_en_US": "Remote Work Allowance",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": true,
+     "currency": "JPY",
+     "frequencyCode": "MON"
+    },
+    {
+     "externalCode": "BONUS",
+     "name_ja_JP": "賞与",
+     "name_en_US": "Bonus",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": false,
+     "currency": "JPY",
+     "frequencyCode": "ONE"
+    },
+    {
+     "externalCode": "ALW_OLD",
+     "name_ja_JP": "旧調整手当",
+     "name_en_US": "Legacy Adjustment Allowance",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "payComponentType": "AMOUNT",
+     "isRecurring": true,
+     "currency": "JPY",
+     "frequencyCode": "MON"
+    }
+   ]
+  }
+ },
+ "Position": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "POS1000",
+     "name_ja_JP": "営業本部長",
+     "name_en_US": "Head of Sales",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D1000",
+     "jobCode": "JC_MGR",
+     "payGrade": "G8",
+     "location": "LOC_TKY",
+     "cust_managerialTitle": "EXE"
+    },
+    {
+     "externalCode": "POS1100",
+     "name_ja_JP": "第一営業部長",
+     "name_en_US": "Sales Dept. 1 Head",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D1100",
+     "jobCode": "JC_MGR",
+     "payGrade": "G7",
+     "location": "LOC_TKY",
+     "parentPosition": "POS1000",
+     "cust_managerialTitle": "SMGR"
+    },
+    {
+     "externalCode": "POS1110",
+     "name_ja_JP": "東京課長",
+     "name_en_US": "Tokyo Section Manager",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D1110",
+     "jobCode": "JC_MGR",
+     "payGrade": "G6",
+     "location": "LOC_TKY",
+     "parentPosition": "POS1100",
+     "cust_managerialTitle": "MGR"
+    },
+    {
+     "externalCode": "POS1111",
+     "name_ja_JP": "営業担当（東京）",
+     "name_en_US": "Sales Rep (Tokyo)",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D1110",
+     "jobCode": "JC_SALES",
+     "payGrade": "G3",
+     "location": "LOC_TKY",
+     "parentPosition": "POS1110",
+     "cust_managerialTitle": "NONE",
+     "vacant": true
+    },
+    {
+     "externalCode": "POS2100",
+     "name_ja_JP": "開発部長",
+     "name_en_US": "Development Head",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D2100",
+     "jobCode": "JC_MGR",
+     "payGrade": "G7",
+     "location": "LOC_TKY",
+     "cust_managerialTitle": "SMGR"
+    },
+    {
+     "externalCode": "POS2101",
+     "name_ja_JP": "エンジニア",
+     "name_en_US": "Engineer",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D2100",
+     "jobCode": "JC_ENG",
+     "payGrade": "G3",
+     "location": "LOC_TKY",
+     "parentPosition": "POS2100",
+     "cust_managerialTitle": "NONE"
+    },
+    {
+     "externalCode": "POS3100",
+     "name_ja_JP": "人事部長",
+     "name_en_US": "HR Head",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D3100",
+     "jobCode": "JC_MGR",
+     "payGrade": "G7",
+     "location": "LOC_TKY",
+     "cust_managerialTitle": "SMGR"
+    },
+    {
+     "externalCode": "POS3999",
+     "name_ja_JP": "旧総務担当",
+     "name_en_US": "Old GA Staff",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "company": "JP01",
+     "department": "D3900",
+     "jobCode": "JC_HR",
+     "payGrade": "G3",
+     "location": "LOC_TKY",
+     "cust_managerialTitle": "NONE"
+    }
+   ]
+  }
+ },
+ "cust_JobFamily": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "JF_SALES",
+     "name_ja_JP": "営業職群",
+     "name_en_US": "Sales",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_defaultHRCategory": "G"
+    },
+    {
+     "externalCode": "JF_ENG",
+     "name_ja_JP": "技術職群",
+     "name_en_US": "Engineering",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_defaultHRCategory": "S"
+    },
+    {
+     "externalCode": "JF_CORP",
+     "name_ja_JP": "コーポレート職群",
+     "name_en_US": "Corporate",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_defaultHRCategory": "G"
+    },
+    {
+     "externalCode": "JF_OPS",
+     "name_ja_JP": "業務職群",
+     "name_en_US": "Operations",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_defaultHRCategory": "A"
+    }
+   ]
+  }
+ },
+ "cust_QualificationMaster": {
+  "d": {
+   "results": [
+    {
+     "externalCode": "Q_BOKI1",
+     "name_ja_JP": "日商簿記1級",
+     "name_en_US": "Bookkeeping Level 1",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "ACC",
+     "cust_level": "ACC_1",
+     "cust_allowanceAmount": 20000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_BOKI2",
+     "name_ja_JP": "日商簿記2級",
+     "name_en_US": "Bookkeeping Level 2",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "ACC",
+     "cust_level": "ACC_2",
+     "cust_allowanceAmount": 5000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_TOEIC800",
+     "name_ja_JP": "TOEIC 800点以上",
+     "name_en_US": "TOEIC 800+",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "LANG",
+     "cust_level": "LANG_800",
+     "cust_allowanceAmount": 5000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_TOEIC900",
+     "name_ja_JP": "TOEIC 900点以上",
+     "name_en_US": "TOEIC 900+",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "LANG",
+     "cust_level": "LANG_900",
+     "cust_allowanceAmount": 10000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_SR",
+     "name_ja_JP": "社会保険労務士",
+     "name_en_US": "Labor and Social Security Attorney",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "LAW",
+     "cust_level": "LAW_PRO",
+     "cust_allowanceAmount": 30000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_PMP",
+     "name_ja_JP": "PMP",
+     "name_en_US": "PMP",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "IT",
+     "cust_level": "IT_ADV",
+     "cust_allowanceAmount": 15000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_FE",
+     "name_ja_JP": "基本情報技術者",
+     "name_en_US": "Fundamental IT Engineer",
+     "status": "A",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "IT",
+     "cust_level": "IT_BAS",
+     "cust_allowanceAmount": 3000,
+     "cust_currency": "JPY"
+    },
+    {
+     "externalCode": "Q_SYSAD",
+     "name_ja_JP": "初級シスアド（廃止）",
+     "name_en_US": "Systems Administrator (Discontinued)",
+     "status": "I",
+     "startDate": "/Date(946684800000)/",
+     "cust_category": "IT",
+     "cust_level": "IT_OLD",
+     "cust_allowanceAmount": 0,
+     "cust_currency": "JPY"
+    }
+   ]
+  }
+ }
+}

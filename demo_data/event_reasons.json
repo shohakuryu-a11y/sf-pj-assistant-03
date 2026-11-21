@@ -1,0 +1,226 @@
+{
+ "d": {
+  "results": [
+   {
+    "externalCode": "HIRNEW",
+    "startDate": "/Date(946684800000)/",
+    "event": "H",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "新卒入社",
+    "name_en_US": "New Graduate Hire",
+    "name_defaultValue": "New Graduate Hire"
+   },
+   {
+    "externalCode": "HIRMID",
+    "startDate": "/Date(946684800000)/",
+    "event": "H",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "中途入社",
+    "name_en_US": "Experienced Hire",
+    "name_defaultValue": "Experienced Hire"
+   },
+   {
+    "externalCode": "HIRGRP",
+    "startDate": "/Date(946684800000)/",
+    "event": "H",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "グループ転籍入社",
+    "name_en_US": "Group Transfer Hire",
+    "name_defaultValue": "Group Transfer Hire"
+   },
+   {
+    "externalCode": "REHIRE",
+    "startDate": "/Date(946684800000)/",
+    "event": "R",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "再雇用",
+    "name_en_US": "Rehire after Retirement",
+    "name_defaultValue": "Rehire after Retirement"
+   },
+   {
+    "externalCode": "PRM_REG",
+    "startDate": "/Date(946684800000)/",
+    "event": "PRM",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "定期昇格",
+    "name_en_US": "Regular Promotion",
+    "name_defaultValue": "Regular Promotion"
+   },
+   {
+    "externalCode": "PRM_SPC",
+    "startDate": "/Date(946684800000)/",
+    "event": "PRM",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "抜擢昇格",
+    "name_en_US": "Special Promotion",
+    "name_defaultValue": "Special Promotion"
+   },
+   {
+    "externalCode": "PRM_TTL",
+    "startDate": "/Date(946684800000)/",
+    "event": "PRM",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "役職昇進",
+    "name_en_US": "Title Promotion",
+    "name_defaultValue": "Title Promotion"
+   },
+   {
+    "externalCode": "PRM_OLD",
+    "startDate": "/Date(946684800000)/",
+    "event": "PRM",
+    "emplStatus": "A",
+    "status": "I",
+    "name_ja_JP": "昇格（旧制度）",
+    "name_en_US": "Promotion (Legacy)",
+    "name_defaultValue": "Promotion (Legacy)"
+   },
+   {
+    "externalCode": "DEM_GRD",
+    "startDate": "/Date(946684800000)/",
+    "event": "DEM",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "降格",
+    "name_en_US": "Grade Demotion",
+    "name_defaultValue": "Grade Demotion"
+   },
+   {
+    "externalCode": "JOB_CHG",
+    "startDate": "/Date(946684800000)/",
+    "event": "5",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "職務変更",
+    "name_en_US": "Job Change",
+    "name_defaultValue": "Job Change"
+   },
+   {
+    "externalCode": "TRN_INT",
+    "startDate": "/Date(946684800000)/",
+    "event": "TRN",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "社内異動",
+    "name_en_US": "Internal Transfer",
+    "name_defaultValue": "Internal Transfer"
+   },
+   {
+    "externalCode": "TRN_SEC",
+    "startDate": "/Date(946684800000)/",
+    "event": "TRN",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "出向",
+    "name_en_US": "Secondment",
+    "name_defaultValue": "Secondment"
+   },
+   {
+    "externalCode": "TRN_RTN",
+    "startDate": "/Date(946684800000)/",
+    "event": "TRN",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "出向復帰",
+    "name_en_US": "Return from Secondment",
+    "name_defaultValue": "Return from Secondment"
+   },
+   {
+    "externalCode": "DATA_COR",
+    "startDate": "/Date(946684800000)/",
+    "event": "9",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "データ修正",
+    "name_en_US": "Data Correction",
+    "name_defaultValue": "Data Correction"
+   },
+   {
+    "externalCode": "PROB_END",
+    "startDate": "/Date(946684800000)/",
+    "event": "9",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "試用期間終了",
+    "name_en_US": "Probation Completed",
+    "name_defaultValue": "Probation Completed"
+   },
+   {
+    "externalCode": "LOA_SICK",
+    "startDate": "/Date(946684800000)/",
+    "event": "LOA",
+    "emplStatus": "U",
+    "status": "A",
+    "name_ja_JP": "私傷病休職",
+    "name_en_US": "Sick Leave",
+    "name_defaultValue": "Sick Leave"
+   },
+   {
+    "externalCode": "LOA_CARE",
+    "startDate": "/Date(946684800000)/",
+    "event": "LOA",
+    "emplStatus": "U",
+    "status": "A",
+    "name_ja_JP": "育児休業",
+    "name_en_US": "Childcare Leave",
+    "name_defaultValue": "Childcare Leave"
+   },
+   {
+    "externalCode": "LOA_MAT",
+    "startDate": "/Date(946684800000)/",
+    "event": "LOA",
+    "emplStatus": "P",
+    "status": "A",
+    "name_ja_JP": "産前産後休業",
+    "name_en_US": "Maternity Leave",
+    "name_defaultValue": "Maternity Leave"
+   },
+   {
+    "externalCode": "RTW",
+    "startDate": "/Date(946684800000)/",
+    "event": "RTW",
+    "emplStatus": "A",
+    "status": "A",
+    "name_ja_JP": "復職",
+    "name_en_US": "Return to Work",
+    "name_defaultValue": "Return to Work"
+   },
+   {
+    "externalCode": "TER_VOL",
+    "startDate": "/Date(946684800000)/",
+    "event": "26",
+    "emplStatus": "T",
+    "status": "A",
+    "name_ja_JP": "自己都合退職",
+    "name_en_US": "Voluntary Resignation",
+    "name_defaultValue": "Voluntary Resignation"
+   },
+   {
+    "externalCode": "TER_INV",
+    "startDate": "/Date(946684800000)/",
+    "event": "26",
+    "emplStatus": "T",
+    "status": "A",
+    "name_ja_JP": "会社都合退職",
+    "name_en_US": "Involuntary Termination",
+    "name_defaultValue": "Involuntary Termination"
+   },
+   {
+    "externalCode": "TER_RET",
+    "startDate": "/Date(946684800000)/",
+    "event": "26",
+    "emplStatus": "T",
+    "status": "A",
+    "name_ja_JP": "定年退職",
+    "name_en_US": "Retirement",
+    "name_defaultValue": "Retirement"
+   }
+  ]
+ }
+}
